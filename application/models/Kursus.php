@@ -35,4 +35,21 @@ class Kursus extends CI_Model {
         return $this->db->get('cari_ruang_sesi_kursus_kosong')->result();
     }
 
+    public function getKursusByRuang($ruang) {
+        $this->db->select('id_ruang_kursus');
+        $this->db->where('ruang', $ruang);
+        return $this->db->get('ruang_kursus')->result();
+    }
+
+    public function simpanJadwalKursus($dataKursus) {
+        $val = array(
+            'id_sesi_kursus' => $this->uuid->v4(),
+            'kelas' => $dataKursus['kelas'],
+            'sesi' => $dataKursus['sesi'],
+            'modul' => $dataKursus['modul'],
+            'id_ruang_kursus' => $dataKursus['id_ruang_kursus']
+        );
+        $this->db->insert('sesi_kursus', $val);
+    }
+
 }
