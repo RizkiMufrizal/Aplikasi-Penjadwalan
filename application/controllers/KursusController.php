@@ -15,12 +15,12 @@ class KursusController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Kursus');
-        $this->load->model('Kelas');
+        $this->load->model('Kuliah');
     }
 
     public function getKursusKosong() {
 
-        $c = $this->Kelas->jadwalKelasKosong('4IA01');
+        $c = $this->Kuliah->getJadwalKosongByKelas('4IA01');
         $b = $this->Kursus->ruangKursusKosong();
 
         $stop = FALSE;
