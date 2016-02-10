@@ -18,9 +18,12 @@ class KursusController extends CI_Controller {
         $this->load->model('Kuliah');
     }
 
-    public function getKursusKosong() {
+    public function simpanJadwalKursus() {
 
-        $c = $this->Kuliah->getJadwalKosongByKelas('4IA01');
+        $kelas = $this->input->post('kelas');
+        $modul = $this->input->post('modul');
+
+        $c = $this->Kuliah->getJadwalKosongByKelas($kelas);
         $b = $this->Kursus->ruangKursusKosong();
 
         $stop = FALSE;
@@ -30,8 +33,8 @@ class KursusController extends CI_Controller {
                 if ($ck->sesi == $bk->sesi) {
 
                     $data = array(
-                        'kelas' => '4IA01',
-                        'modul' => 'latihan boss'
+                        'kelas' => $kelas,
+                        'modul' => $modul
                     );
 
                     $id = $bk->id_sesi_kursus;
@@ -46,6 +49,7 @@ class KursusController extends CI_Controller {
                 break;
             }
         }
+        redirect('kursus');
     }
 
     public function pageKursus() {
