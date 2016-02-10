@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['kuliah'] = 'KuliahController/pageKuliah';
-$route['kursus'] = 'PageController/pageKursus';
+$route['kursus'] = 'KursusController/pageKursus';
 
 $route['default_controller'] = 'PageController';
 $route['404_override'] = '';
