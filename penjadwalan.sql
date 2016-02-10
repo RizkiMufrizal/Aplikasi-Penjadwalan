@@ -15,9 +15,9 @@ CREATE TABLE IF NOT EXISTS ruang_kursus (
 
 CREATE TABLE IF NOT EXISTS sesi_kursus (
     id_sesi_kursus VARCHAR(36) NOT NULL,
-    sesi INT(1),
-    kelas VARCHAR(6) NOT NULL,
-    modul VARCHAR(15) NOT NULL,
+    sesi INT(1) NOT NULL,
+    kelas VARCHAR(6),
+    modul VARCHAR(15),
     id_ruang_kursus VARCHAR(36) NOT NULL,
     PRIMARY KEY (id_sesi_kursus),
     FOREIGN KEY (id_ruang_kursus)
