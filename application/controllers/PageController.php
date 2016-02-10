@@ -20,8 +20,4 @@ class PageController extends CI_Controller {
         $this->load->view('IndexView');
     }
 
-    public function pageKursus() {
-        $this->load->view('KursusView');
-    }
-
 }
