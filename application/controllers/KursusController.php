@@ -48,4 +48,10 @@ class KursusController extends CI_Controller {
         }
     }
 
+    public function pageKursus() {
+        $data['dataKursus'] = $this->Kursus->getAllJadwalKursus();
+        $data['dataKursusKosong'] = $this->Kursus->getAllJadwalKursusKosong();
+        $this->load->view('KursusView', $data);
+    }
+
 }
