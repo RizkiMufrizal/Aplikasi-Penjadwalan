@@ -23,11 +23,68 @@
 
         <div class="container">
 
-            <div class="jumbotron text-center">
-                <h1>Selamat Datang</h1>
-                <p>Aplikasi penjadwalan berfungsi untuk mengatur jadwal kursus</p>
-            </div>
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Data Jadwal Kursus</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Data Jadwal Kursus Kosong</a></li>
+                </ul>
 
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+
+                        <p></p>
+
+                        <table id="tabel1" class="table table-bordered table-hover table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Hari</th>
+                                    <th class="text-center">Ruang</th>
+                                    <th class="text-center">Kelas</th>
+                                    <th class="text-center">Sesi</th>
+                                    <th class="text-center">Modul</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($dataKursus as $d) { ?>
+                                    <tr>
+                                        <td><?php echo $d->hari; ?></td>
+                                        <td><?php echo $d->ruang; ?></td>
+                                        <td><?php echo $d->kelas; ?></td>
+                                        <td><?php echo $d->sesi; ?></td>
+                                        <td><?php echo $d->modul; ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <p></p>
+                        <table id="tabel2" class="table table-bordered table-hover table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Hari</th>
+                                    <th class="text-center">Ruang</th>
+                                    <th class="text-center">Kelas</th>
+                                    <th class="text-center">Sesi</th>
+                                    <th class="text-center">Modul</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($dataKursusKosong as $dk) { ?>
+                                    <tr>
+                                        <td><?php echo $dk->hari; ?></td>
+                                        <td><?php echo $dk->ruang; ?></td>
+                                        <td><?php echo (empty($dk->kelas) ? 'kosong' : $dk->kelas) ?></td>
+                                        <td><?php echo $dk->sesi; ?></td>
+                                        <td><?php echo (empty($dk->modul) ? 'kosong' : $dk->modul) ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <?php $this->load->view('layout/js') ?>
