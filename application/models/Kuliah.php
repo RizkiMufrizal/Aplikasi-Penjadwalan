@@ -37,4 +37,9 @@ class Kuliah extends CI_Model {
         $this->db->insert('sesi_kuliah', $val);
     }
 
+    public function getJadwalKosongByKelas($kelas) {
+        $this->db->where('kelas', $kelas);
+        return $this->db->get('cari_kelas_kosong')->result();
+    }
+
 }
