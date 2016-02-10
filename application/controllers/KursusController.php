@@ -76,7 +76,9 @@ class KursusController extends CI_Controller {
 
             $result = $this->csvreader->parse_file($file_path);
             foreach ($result as $row) {
-                $id = $this->Kursus->getKursusByRuang($row['ruang'])[0]->id_ruang_kursus;
+                $id_jadwal = $this->Kursus->getKursusByHari($row['hari'])[0]->id_jadwal_kursus;
+
+                $id = $this->Kursus->getRuangKursusByRuangAndId($row['ruang'], $id_jadwal)[0]->id_ruang_kursus;
 
                 $val = array(
                     'sesi' => $row['sesi'],
@@ -90,6 +92,11 @@ class KursusController extends CI_Controller {
 
             redirect('kursus');
         }
+    }
+
+    public function hapusAllDataKursus() {
+        $this->Kursus->hapusAllDataKursus();
+        redirect('kursus');
     }
 
 }
