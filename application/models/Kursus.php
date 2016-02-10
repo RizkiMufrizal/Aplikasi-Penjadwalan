@@ -27,4 +27,12 @@ class Kursus extends CI_Model {
         $this->db->update('sesi_kursus', $data);
     }
 
+    public function getAllJadwalKursus() {
+        return $this->db->get('query_jadwal_kursus')->result();
+    }
+
+    public function getAllJadwalKursusKosong() {
+        return $this->db->get('cari_ruang_sesi_kursus_kosong')->result();
+    }
+
 }
