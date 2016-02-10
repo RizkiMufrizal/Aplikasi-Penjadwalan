@@ -14,7 +14,7 @@ dist/
 nbdist/
 nbactions.xml
 .nb-gradle/
-
+nbproject/
 
 ### Eclipse ###
 
