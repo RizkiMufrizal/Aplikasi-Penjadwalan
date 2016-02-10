@@ -63,7 +63,20 @@
                         </table>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="profile">
+
                         <p></p>
+
+                        <form method="post" action="<?php echo base_url() ?>index.php/KursusController/uploadJadwalKursus" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Upload Data Jadwal Kursus</label>
+                                <input type="file" name="userfile">
+                                <p class="help-block">Silahkan browse file csv untuk data jadwal kursus</p>
+                            </div>
+                            <button type="submit" class="btn btn-success">Upload</button>
+                        </form>
+
+                        <br>
+
                         <table id="tabel2" class="table table-bordered table-hover table-responsive table-striped">
                             <thead>
                                 <tr>
