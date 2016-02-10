@@ -20,11 +20,7 @@ VALUES
 -- sesi kuliah
 
 INSERT INTO `penjadwalan`.`sesi_kuliah`
-(`id_sesi_kuliah`,
-`kelas`,
-`sesi`,
-`mata_kuliah`,
-`id_jadwal_kuliah`)
+(`id_sesi_kuliah`,`kelas`,`sesi`,`mata_kuliah`,`id_jadwal_kuliah`)
 VALUES
 (uuid(), '4IA01',0,null, @uuid_jadwal_kuliah1),
 (uuid(), '4IA01',1,'java', @uuid_jadwal_kuliah1),
@@ -39,8 +35,8 @@ VALUES
 (uuid(), '4IA01',0,'scala', @uuid_jadwal_kuliah3),
 (uuid(), '4IA01',1,'ruby', @uuid_jadwal_kuliah3),
 (uuid(), '4IA01',2,'c++', @uuid_jadwal_kuliah3),
-(uuid(), '4IA011',3,null, @uuid_jadwal_kuliah3),
-(uuid(), '4IA011',4,null, @uuid_jadwal_kuliah3),
+(uuid(), '4IA01',3,null, @uuid_jadwal_kuliah3),
+(uuid(), '4IA01',4,null, @uuid_jadwal_kuliah3),
 (uuid(), '4IA01',0,null, @uuid_jadwal_kuliah4),
 (uuid(), '4IA01',1,null, @uuid_jadwal_kuliah4),
 (uuid(), '4IA01',2,null, @uuid_jadwal_kuliah4),
