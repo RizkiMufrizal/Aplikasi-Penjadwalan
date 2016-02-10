@@ -35,9 +35,16 @@ class Kursus extends CI_Model {
         return $this->db->get('cari_ruang_sesi_kursus_kosong')->result();
     }
 
-    public function getKursusByRuang($ruang) {
+    public function getKursusByHari($hari) {
+        $this->db->select('id_jadwal_kursus');
+        $this->db->where('hari', $hari);
+        return $this->db->get('jadwal_kursus')->result();
+    }
+
+    public function getRuangKursusByRuangAndId($ruang, $id_jadwal_kursus) {
         $this->db->select('id_ruang_kursus');
         $this->db->where('ruang', $ruang);
+        $this->db->where('id_jadwal_kursus', $id_jadwal_kursus);
         return $this->db->get('ruang_kursus')->result();
     }
 
@@ -50,6 +57,10 @@ class Kursus extends CI_Model {
             'id_ruang_kursus' => $dataKursus['id_ruang_kursus']
         );
         $this->db->insert('sesi_kursus', $val);
+    }
+
+    public function hapusAllDataKursus() {
+        $this->db->truncate('sesi_kursus');
     }
 
 }
