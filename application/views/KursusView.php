@@ -74,8 +74,14 @@
                             </div>
                             <button type="submit" class="btn btn-success">Upload</button>
                         </form>
+                        
+                        <p></p>
+                        
+                        <a href="<?php echo base_url(); ?>index.php/KursusController/hapusAllDataKursus">
+                            <button class="btn btn-danger">Hapus Semua Data</button>
+                        </a>
 
-                        <br>
+                        <p></p>
 
                         <table id="tabel2" class="table table-bordered table-hover table-responsive table-striped">
                             <thead>
