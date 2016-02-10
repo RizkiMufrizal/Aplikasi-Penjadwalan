@@ -10,14 +10,18 @@
  * Package Expression package is undefined on line 12, column 14 in Templates/Scripting/PHPClass.php.
  * 
  */
-class PageController extends CI_Controller{
-    
+class PageController extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
     }
-    
+
     public function index() {
         $this->load->view('IndexView');
     }
-    
+
+    public function pageKursus() {
+        $this->load->view('KursusView');
+    }
+
 }
