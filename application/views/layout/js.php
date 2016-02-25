@@ -6,5 +6,6 @@
     $(document).ready(function () {
         $('#tabel1').DataTable();
         $('#tabel2').DataTable();
+        $('#tabel3').DataTable();
     });
 </script>

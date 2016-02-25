@@ -16,41 +16,8 @@ class KursusController extends CI_Controller {
         parent::__construct();
         $this->load->model('Kursus');
         $this->load->model('Kuliah');
+        $this->load->model('Mahasiswa');
         $this->load->library('CSVReader');
-    }
-
-    public function simpanJadwalKursus() {
-
-        $kelas = $this->input->post('kelas');
-        $modul = $this->input->post('modul');
-
-        $c = $this->Kuliah->getJadwalKosongByKelas($kelas);
-        $b = $this->Kursus->ruangKursusKosong();
-
-        $stop = FALSE;
-
-        foreach ($c as $ck) {
-            foreach ($b as $bk) {
-                if ($ck->sesi == $bk->sesi) {
-
-                    $data = array(
-                        'kelas' => $kelas,
-                        'modul' => $modul
-                    );
-
-                    $id = $bk->id_sesi_kursus;
-
-                    $this->Kursus->tambahJadwalKursus($data, $id);
-
-                    $stop = true;
-                    break;
-                }
-            }
-            if ($stop) {
-                break;
-            }
-        }
-        redirect('kursus');
     }
 
     public function pageKursus() {
@@ -83,7 +50,6 @@ class KursusController extends CI_Controller {
                 $val = array(
                     'sesi' => $row['sesi'],
                     'modul' => empty($row['modul']) ? NULL : $row['modul'],
-                    'kelas' => empty($row['kelas']) ? NULL : $row['kelas'],
                     'id_ruang_kursus' => $id
                 );
 
@@ -96,6 +62,12 @@ class KursusController extends CI_Controller {
 
     public function hapusAllDataKursus() {
         $this->Kursus->hapusAllDataKursus();
+        redirect('kursus');
+    }
+
+    public function processPenjadwalan() {
+        $k = $this->Kuliah->getAllJadwalKuliahKosong();
+
         redirect('kursus');
     }
 

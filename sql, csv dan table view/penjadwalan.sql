@@ -16,7 +16,6 @@ CREATE TABLE IF NOT EXISTS ruang_kursus (
 CREATE TABLE IF NOT EXISTS sesi_kursus (
     id_sesi_kursus VARCHAR(36) NOT NULL,
     sesi INT(1) NOT NULL,
-    kelas VARCHAR(6),
     modul VARCHAR(15),
     id_ruang_kursus VARCHAR(36) NOT NULL,
     PRIMARY KEY (id_sesi_kursus),
@@ -39,4 +38,23 @@ CREATE TABLE IF NOT EXISTS sesi_kuliah (
     PRIMARY KEY (id_sesi_kuliah),
     FOREIGN KEY (id_jadwal_kuliah)
         REFERENCES jadwal_kuliah (id_jadwal_kuliah)
+)  ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS mahasiswa (
+	id_mahasiswa varchar(150) not null,
+    npm VARCHAR(8) NOT NULL,
+    nama VARCHAR(50) NOT NULL,
+    kelas VARCHAR(6) NOT NULL,
+    modul VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id_mahasiswa)
+)  ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS jadwal_kosong_mahasiswa (
+    id VARCHAR(150) NOT NULL,
+    nama VARCHAR(50) NOT NULL,
+    kelas VARCHAR(6) NOT NULL,
+    hari VARCHAR(10) NOT NULL,
+    sesi INTEGER(1) NOT NULL,
+    modul VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
 )  ENGINE=INNODB;

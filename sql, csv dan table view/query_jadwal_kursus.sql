@@ -2,7 +2,6 @@ CREATE VIEW `query_jadwal_kursus` AS
     SELECT 
         `ruang_kursus`.`ruang`,
         `jadwal_kursus`.`hari`,
-        `sesi_kursus`.`kelas`,
         `sesi_kursus`.`modul`,
         `sesi_kursus`.`sesi`
     FROM
@@ -12,5 +11,4 @@ CREATE VIEW `query_jadwal_kursus` AS
             INNER JOIN
         `sesi_kursus` ON `ruang_kursus`.`id_ruang_kursus` = `sesi_kursus`.`id_ruang_kursus`
     WHERE
-        `sesi_kursus`.`kelas` IS NOT NULL
-            AND `sesi_kursus`.`modul` IS NOT NULL
+        `sesi_kursus`.`modul` IS NOT NULL

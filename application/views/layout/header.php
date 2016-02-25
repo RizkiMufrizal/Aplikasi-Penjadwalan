@@ -14,6 +14,7 @@
                 <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/kuliah">Jadwal Kuliah</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/kursus">Jadwal Kursus</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/mahasiswa">Daftar Mahasiswa dan Modul</a></li>
             </ul>
         </div>
     </div>

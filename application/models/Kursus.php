@@ -18,15 +18,6 @@ class Kursus extends CI_Model {
         return $this->db->get('cari_ruang_sesi_kursus_kosong')->result();
     }
 
-    public function tambahJadwalKursus($dataKursus, $id) {
-        $data = array(
-            'kelas' => $dataKursus['kelas'],
-            'modul' => $dataKursus['modul']
-        );
-        $this->db->where('id_sesi_kursus', $id);
-        $this->db->update('sesi_kursus', $data);
-    }
-
     public function getAllJadwalKursus() {
         return $this->db->get('query_jadwal_kursus')->result();
     }
@@ -51,7 +42,6 @@ class Kursus extends CI_Model {
     public function simpanJadwalKursus($dataKursus) {
         $val = array(
             'id_sesi_kursus' => $this->uuid->v4(),
-            'kelas' => $dataKursus['kelas'],
             'sesi' => $dataKursus['sesi'],
             'modul' => $dataKursus['modul'],
             'id_ruang_kursus' => $dataKursus['id_ruang_kursus']
