@@ -1,61 +1,61 @@
 hari,ruang,sesi,modul
-senin,E1,0,
-senin,E1,1,
-senin,E1,2,
-senin,E1,3,
-senin,E1,4,
-senin,E2,0,
-senin,E2,1,
-senin,E2,2,
-senin,E2,3,
-senin,E2,4,
-selasa,E1,0,
-selasa,E1,1,
-selasa,E1,2,
-selasa,E1,3,
-selasa,E1,4,
-selasa,E2,0,
-selasa,E2,1,
-selasa,E2,2,
-selasa,E2,3,
-selasa,E2,4,
-rabu,E1,0,
-rabu,E1,1,
-rabu,E1,2,
-rabu,E1,3,
-rabu,E1,4,
-rabu,E2,0,
-rabu,E2,1,
-rabu,E2,2,
-rabu,E2,3,
-rabu,E2,4,
-kamis,E1,0,
-kamis,E1,1,
-kamis,E1,2,
-kamis,E1,3,
-kamis,E1,4,
-kamis,E2,0,
-kamis,E2,1,
-kamis,E2,2,
-kamis,E2,3,
-kamis,E2,4,
-jumat,E1,0,
-jumat,E1,1,
-jumat,E1,2,
-jumat,E1,3,
-jumat,E1,4,
-jumat,E2,0,
-jumat,E2,1,
-jumat,E2,2,
-jumat,E2,3,
-jumat,E2,4,
-sabtu,E1,0,
-sabtu,E1,1,
-sabtu,E1,2,
-sabtu,E1,3,
-sabtu,E1,4,
-sabtu,E2,0,
-sabtu,E2,1,
-sabtu,E2,2,
-sabtu,E2,3,
-sabtu,E2,4,
+senin,E1,0,fundamental erp
+senin,E1,1,fundamental erp
+senin,E1,2,fundamental erp
+senin,E1,3,fundamental erp
+senin,E1,4,fundamental erp
+senin,E2,0,fundamental dbms
+senin,E2,1,fundamental dbms
+senin,E2,2,fundamental dbms
+senin,E2,3,fundamental dbms
+senin,E2,4,fundamental dbms
+selasa,E1,0,fundamental erp
+selasa,E1,1,fundamental erp
+selasa,E1,2,fundamental erp
+selasa,E1,3,fundamental erp
+selasa,E1,4,fundamental erp
+selasa,E2,0,fundamental desktop
+selasa,E2,1,fundamental desktop
+selasa,E2,2,fundamental desktop
+selasa,E2,3,fundamental desktop
+selasa,E2,4,fundamental desktop
+rabu,E1,0,fundamental desktop
+rabu,E1,1,fundamental desktop
+rabu,E1,2,fundamental desktop
+rabu,E1,3,fundamental desktop
+rabu,E1,4,fundamental desktop
+rabu,E2,0,fundamental serveros
+rabu,E2,1,fundamental serveros
+rabu,E2,2,fundamental serveros
+rabu,E2,3,fundamental serveros
+rabu,E2,4,fundamental serveros
+kamis,E1,0,fundamental serveros
+kamis,E1,1,fundamental serveros
+kamis,E1,2,fundamental serveros
+kamis,E1,3,fundamental serveros
+kamis,E1,4,fundamental serveros
+kamis,E2,0,fundamental dbms
+kamis,E2,1,fundamental dbms
+kamis,E2,2,fundamental dbms
+kamis,E2,3,fundamental dbms
+kamis,E2,4,fundamental dbms
+jumat,E1,0,fundamental web
+jumat,E1,1,fundamental web
+jumat,E1,2,fundamental web
+jumat,E1,3,fundamental web
+jumat,E1,4,fundamental web
+jumat,E2,0,fundamental networking
+jumat,E2,1,fundamental networking
+jumat,E2,2,fundamental networking
+jumat,E2,3,fundamental networking
+jumat,E2,4,fundamental networking
+sabtu,E1,0,fundamental web
+sabtu,E1,1,fundamental web
+sabtu,E1,2,fundamental web
+sabtu,E1,3,fundamental web
+sabtu,E1,4,fundamental web
+sabtu,E2,0,fundamental networking
+sabtu,E2,1,fundamental networking
+sabtu,E2,2,fundamental networking
+sabtu,E2,3,fundamental networking
+sabtu,E2,4,fundamental networking
