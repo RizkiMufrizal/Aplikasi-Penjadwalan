@@ -8,21 +8,24 @@
  * Encoding UTF-8
  * Project Aplikasi-Penjadwalan
  * Package Expression package is undefined on line 12, column 14 in Templates/Scripting/PHPClass.php.
- * 
+ *
  */
-class Mahasiswa extends CI_Model {
+class Mahasiswa extends CI_Model
+{
 
-    public function getMahasiswa() {
+    public function getMahasiswa()
+    {
         return $this->db->get('mahasiswa')->result();
     }
 
-    public function simpanMahasiswa($dataMahasiswa) {
+    public function simpanMahasiswa($dataMahasiswa)
+    {
         $val = array(
             'id_mahasiswa' => $this->uuid->v4(),
-            'npm' => $dataMahasiswa['npm'],
-            'nama' => $dataMahasiswa['nama'],
-            'kelas' => $dataMahasiswa['kelas'],
-            'modul' => $dataMahasiswa['modul']
+            'npm'          => $dataMahasiswa['npm'],
+            'nama'         => $dataMahasiswa['nama'],
+            'kelas'        => $dataMahasiswa['kelas'],
+            'modul'        => $dataMahasiswa['modul'],
         );
         $this->db->insert('mahasiswa', $val);
     }
