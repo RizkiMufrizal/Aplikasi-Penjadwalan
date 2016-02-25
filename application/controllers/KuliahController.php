@@ -8,26 +8,30 @@
  * Encoding UTF-8
  * Project Aplikasi-Penjadwalan
  * Package Expression package is undefined on line 12, column 14 in Templates/Scripting/PHPClass.php.
- * 
+ *
  */
-class KuliahController extends CI_Controller {
+class KuliahController extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Kuliah');
         $this->load->library('CSVReader');
     }
 
-    public function pageKuliah() {
-        $data['dataKuliah'] = $this->Kuliah->getAllJadwalKuliah();
+    public function pageKuliah()
+    {
+        $data['dataKuliah']       = $this->Kuliah->getAllJadwalKuliah();
         $data['dataKuliahKosong'] = $this->Kuliah->getAllJadwalKuliahKosong();
         $this->load->view('KuliahView', $data);
     }
 
-    public function uploadJadwalKuliah() {
-        $config['upload_path'] = './uploads/';
+    public function uploadJadwalKuliah()
+    {
+        $config['upload_path']   = './uploads/';
         $config['allowed_types'] = 'csv';
-        $config['max_size'] = '1000';
+        $config['max_size']      = '1000';
 
         $this->load->library('upload', $config);
 
@@ -44,10 +48,10 @@ class KuliahController extends CI_Controller {
                 $id = $this->Kuliah->getKuliahByHari($row['hari'])[0]->id_jadwal_kuliah;
 
                 $val = array(
-                    'kelas' => $row['kelas'],
-                    'sesi' => $row['sesi'],
-                    'mata_kuliah' => empty($row['mata_kuliah']) ? NULL : $row['mata_kuliah'],
-                    'id_jadwal_kuliah' => $id
+                    'kelas'            => $row['kelas'],
+                    'sesi'             => $row['sesi'],
+                    'mata_kuliah'      => empty($row['mata_kuliah']) ? null : $row['mata_kuliah'],
+                    'id_jadwal_kuliah' => $id,
                 );
 
                 $this->Kuliah->simpanJadwalKuliah($val);
