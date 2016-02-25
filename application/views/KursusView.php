@@ -7,19 +7,19 @@
  Encoding UTF-8
  Project Aplikasi-Penjadwalan
  Package Expression package is undefined on line 9, column 12 in Templates/Scripting/EmptyPHPWebPage.php.
-  
+
 -->
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Aplikasi Penjadwalan</title>
 
-        <?php $this->load->view('layout/css') ?>
+        <?php $this->load->view('layout/css')?>
 
     </head>
     <body>
 
-        <?php $this->load->view('layout/header') ?>
+        <?php $this->load->view('layout/header')?>
 
         <div class="container">
 
@@ -27,6 +27,7 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Data Jadwal Kursus</a></li>
                     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Data Jadwal Kursus Kosong</a></li>
+                    <li role="presentation"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">Data Jadwal Kursus Kosong</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -36,6 +37,11 @@
                         <p></p>
 
                         <a href="<?php echo base_url(); ?>index.php/KursusController/processPenjadwalan">
+                            <button class="btn btn-primary">Proses Pengelompokan Modul</button>
+                        </a>
+
+
+                        <a href="<?php echo base_url(); ?>index.php/KursusController/simpanBerdasarkanModul">
                             <button class="btn btn-primary">Proses Penjadwalan</button>
                         </a>
 
@@ -51,14 +57,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($dataKursus as $d) { ?>
+                                <?php foreach ($dataKursus as $d) {?>
                                     <tr>
                                         <td><?php echo $d->hari; ?></td>
                                         <td><?php echo $d->ruang; ?></td>
                                         <td><?php echo $d->sesi; ?></td>
                                         <td><?php echo $d->modul; ?></td>
                                     </tr>
-                                <?php } ?>
+                                <?php }
+?>
                             </tbody>
                         </table>
                     </div>
@@ -88,21 +95,48 @@
                                 <tr>
                                     <th class="text-center">Hari</th>
                                     <th class="text-center">Ruang</th>
-                                    <th class="text-center">Kelas</th>
                                     <th class="text-center">Sesi</th>
                                     <th class="text-center">Modul</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($dataKursusKosong as $dk) { ?>
+                                <?php foreach ($dataKursusKosong as $dk) {?>
                                     <tr>
                                         <td><?php echo $dk->hari; ?></td>
                                         <td><?php echo $dk->ruang; ?></td>
-                                        <td><?php echo (empty($dk->kelas) ? 'kosong' : $dk->kelas) ?></td>
                                         <td><?php echo $dk->sesi; ?></td>
                                         <td><?php echo (empty($dk->modul) ? 'kosong' : $dk->modul) ?></td>
                                     </tr>
-                                <?php } ?>
+                                <?php }
+?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="all">
+
+                    <p></p>
+
+                        <table id="tabel3" class="table table-bordered table-hover table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Hari</th>
+                                    <th class="text-center">Ruang</th>
+                                    <th class="text-center">Sesi</th>
+                                    <th class="text-center">Modul</th>
+                                    <th class="text-center">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($dataAllKursus as $ds) {?>
+                                    <tr>
+                                        <td><?php echo $ds->hari; ?></td>
+                                        <td><?php echo $ds->ruang; ?></td>
+                                        <td><?php echo $ds->sesi; ?></td>
+                                        <td><?php echo $ds->modul ?></td>
+                                        <td><?php echo $ds->jumlah ?></td>
+                                    </tr>
+                                <?php }
+?>
                             </tbody>
                         </table>
                     </div>
@@ -110,7 +144,7 @@
             </div>
         </div>
 
-        <?php $this->load->view('layout/js') ?>
+        <?php $this->load->view('layout/js')?>
 
     </body>
 </html>
