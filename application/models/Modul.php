@@ -33,6 +33,7 @@ class Modul extends CI_Model
     {
         $val = array(
             'id_modul_mahasiswa' => $this->uuid->v4(),
+            'npm'                => $dataModul['npm'],
             'nama'               => $dataModul['nama'],
             'kelas'              => $dataModul['kelas'],
             'id_modul'           => $dataModul['id_modul'],

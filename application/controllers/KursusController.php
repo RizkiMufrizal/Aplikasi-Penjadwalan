@@ -103,6 +103,7 @@ class KursusController extends CI_Controller
                     $modul = $this->Modul->getModul($dms);
 
                     $val = array(
+                        'npm'      => $ms->npm,
                         'nama'     => $ms->nama,
                         'kelas'    => $ms->kelas,
                         'id_modul' => $modul[0]->id_modul,
@@ -147,10 +148,13 @@ class KursusController extends CI_Controller
 
     public function simpanBerdasarkanModul()
     {
-        $k  = $this->Kuliah->getAllJadwalKuliahKosong(); //
+        $k  = $this->Kuliah->getAllJadwalKuliahKosong();
         $m  = $this->Modul->ambilDataModulMahasiswa();
-        $kr = $this->Kursus->getAllJadwalKursus(); //
+        $kr = $this->Kursus->getAllJadwalKursus();
         $i  = 0;
+
+        $dataJadwalKursus = array();
+        $dataFix          = array();
 
         foreach ($k as $ks) {
             foreach ($m as $ms) {
@@ -159,18 +163,31 @@ class KursusController extends CI_Controller
                         if ($ks->kelas == $ms->kelas) {
                             if ($ks->hari == $krs->hari and $ks->sesi == $krs->sesi) {
 
-                                $i = $i + 1;
+                                if (!in_array($ms->npm, $dataJadwalKursus)) {
+                                    array_push($dataJadwalKursus, $ms->npm);
 
-                                if ($i == 40) {
-                                    $val = array(
-                                        'ruang'  => $krs->ruang,
-                                        'hari'   => $ks->hari,
-                                        'sesi'   => $ks->sesi,
-                                        'modul'  => $ms->nama_modul,
-                                        'jumlah' => $i,
-                                    );
-                                    $this->Kursus->simpanAllJadwalKursus($val);
-                                    $i = 0;
+                                    $i++;
+
+                                    echo $i . ' ';
+                                    echo $ks->hari . ' ';
+                                    echo $ks->sesi . ' ';
+                                    echo $krs->ruang . ' ';
+                                    echo $ms->npm . ' ';
+                                    echo $krs->modul . ' ';
+                                    echo "<br />";
+
+                                    // if ($i == 10) {
+                                    //     $val = array(
+                                    //         'ruang'  => $krs->ruang,
+                                    //         'hari'   => $ks->hari,
+                                    //         'sesi'   => $ks->sesi,
+                                    //         'modul'  => $ms->nama_modul,
+                                    //         'jumlah' => $i,
+                                    //     );
+                                    //     $this->Kursus->simpanAllJadwalKursus($val);
+                                    //     $i = 0;
+                                    // }
+
                                 }
                             }
                         }
@@ -179,7 +196,9 @@ class KursusController extends CI_Controller
             }
         }
 
-        redirect('kursus');
+        //echo json_encode($dataJadwalKursus);
+
+        //redirect('kursus');
     }
 
 }

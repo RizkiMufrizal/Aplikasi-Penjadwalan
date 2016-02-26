@@ -2,6 +2,7 @@ CREATE VIEW `ambil_data_modul_mahasiswa` AS
     SELECT 
         `tb_modul_mahasiswa`.`nama`,
         `tb_modul_mahasiswa`.`kelas`,
+		`tb_modul_mahasiswa`.`npm`,
         `tb_modul`.`nama_modul`
     FROM
         `tb_modul_mahasiswa`
