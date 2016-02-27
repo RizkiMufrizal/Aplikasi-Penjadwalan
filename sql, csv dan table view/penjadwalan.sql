@@ -65,22 +65,15 @@ CREATE TABLE IF NOT EXISTS tb_modul_mahasiswa (
         REFERENCES tb_modul (id_modul)
 );
 
-CREATE TABLE IF NOT EXISTS tb_modul_mahasiswa_kuliah (
-    id_modul_mahasiswa_kuliah VARCHAR(150) NOT NULL,
+CREATE TABLE IF NOT EXISTS tb_modul_mahasiswa_dan_kursus (
+    id_modul_mahasiswa_dan_kursus VARCHAR(150) NOT NULL,
+    npm VARCHAR(8) NOT NULL,
     nama VARCHAR(50) NOT NULL,
-    kelas VARCHAR(6) NOT NULL,
     hari VARCHAR(10) NOT NULL,
     sesi INTEGER(1) NOT NULL,
-    modul VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id_modul_mahasiswa_kuliah)
-)  ENGINE=INNODB;
-
-CREATE TABLE IF NOT EXISTS tb_all_jadwal_kursus (
-    id_all_jadwal_kursus VARCHAR(150) NOT NULL,
     ruang VARCHAR(5) NOT NULL,
-    hari VARCHAR(10) NOT NULL,
-    sesi INTEGER(1) NOT NULL,
-    modul VARCHAR(50) NOT NULL,
-    jumlah INTEGER(2) NOT NULL,
-    PRIMARY KEY (id_all_jadwal_kursus)
-)  ENGINE=INNODB;
+    id_modul VARCHAR(150) NOT NULL,
+    PRIMARY KEY (id_modul_mahasiswa_dan_kursus),
+    FOREIGN KEY (id_modul)
+        REFERENCES tb_modul (id_modul)
+);

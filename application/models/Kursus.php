@@ -82,7 +82,7 @@ class Kursus extends CI_Model
 
     public function getAJadwalKursus()
     {
-        return $this->db->get('tb_all_jadwal_kursus')->result();
+        return $this->db->get('query_modul_mahasiswa_dan_kursus')->result();
     }
 
 }

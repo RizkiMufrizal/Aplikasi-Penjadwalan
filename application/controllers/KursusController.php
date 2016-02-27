@@ -123,38 +123,13 @@ class KursusController extends CI_Controller
         redirect('kursus');
     }
 
-    public function simpanModulMahasiswaKuliah()
-    {
-        $k = $this->Kuliah->getAllJadwalKuliahKosong();
-        $m = $this->Modul->ambilDataModulMahasiswa();
-
-        foreach ($k as $ks) {
-            foreach ($m as $ms) {
-                if ($ks->kelas == $ms->kelas) {
-                    $val = array(
-                        'nama'  => $ms->nama,
-                        'kelas' => $ks->kelas,
-                        'hari'  => $ks->hari,
-                        'sesi'  => $ks->sesi,
-                        'modul' => $ms->nama_modul,
-                    );
-                    $this->Modul->simpanModulMahasiswaKuliah($val);
-                }
-            }
-        }
-
-        redirect('kursus');
-    }
-
     public function simpanBerdasarkanModul()
     {
-        $k  = $this->Kuliah->getAllJadwalKuliahKosong();
+        $k  = $this->Kuliah->getAllJadwalKuliahKosong(); //
         $m  = $this->Modul->ambilDataModulMahasiswa();
-        $kr = $this->Kursus->getAllJadwalKursus();
-        $i  = 0;
+        $kr = $this->Kursus->getAllJadwalKursus(); //
 
-        $dataJadwalKursus = array();
-        $dataFix          = array();
+        $dataNpm = array();
 
         foreach ($k as $ks) {
             foreach ($m as $ms) {
@@ -163,31 +138,21 @@ class KursusController extends CI_Controller
                         if ($ks->kelas == $ms->kelas) {
                             if ($ks->hari == $krs->hari and $ks->sesi == $krs->sesi) {
 
-                                if (!in_array($ms->npm, $dataJadwalKursus)) {
-                                    array_push($dataJadwalKursus, $ms->npm);
+                                if (!in_array($ms->npm, $dataNpm)) {
+                                    array_push($dataNpm, $ms->npm);
 
-                                    $i++;
+                                    $id_modul = $this->Modul->getModul($krs->modul)[0]->id_modul;
 
-                                    echo $i . ' ';
-                                    echo $ks->hari . ' ';
-                                    echo $ks->sesi . ' ';
-                                    echo $krs->ruang . ' ';
-                                    echo $ms->npm . ' ';
-                                    echo $krs->modul . ' ';
-                                    echo "<br />";
+                                    $val = array(
+                                        'npm'      => $ms->npm,
+                                        'nama'     => $ms->nama,
+                                        'hari'     => $ks->hari,
+                                        'sesi'     => $ks->sesi,
+                                        'ruang'    => $krs->ruang,
+                                        'id_modul' => $id_modul,
+                                    );
 
-                                    // if ($i == 10) {
-                                    //     $val = array(
-                                    //         'ruang'  => $krs->ruang,
-                                    //         'hari'   => $ks->hari,
-                                    //         'sesi'   => $ks->sesi,
-                                    //         'modul'  => $ms->nama_modul,
-                                    //         'jumlah' => $i,
-                                    //     );
-                                    //     $this->Kursus->simpanAllJadwalKursus($val);
-                                    //     $i = 0;
-                                    // }
-
+                                    $this->Modul->simpanModulMahasiswaKuliahDanKursus($val);
                                 }
                             }
                         }
@@ -196,9 +161,8 @@ class KursusController extends CI_Controller
             }
         }
 
-        //echo json_encode($dataJadwalKursus);
+        redirect('kursus');
 
-        //redirect('kursus');
     }
 
 }

@@ -29,6 +29,11 @@ class Modul extends CI_Model
         return $this->db->get('tb_modul')->result();
     }
 
+    public function getAllModul()
+    {
+        return $this->db->get('tb_modul')->result();
+    }
+
     public function simpanModulMahasiswa($dataModul)
     {
         $val = array(
@@ -57,6 +62,20 @@ class Modul extends CI_Model
             'modul'                     => $dataModul['modul'],
         );
         $this->db->insert('tb_modul_mahasiswa_kuliah', $val);
+    }
+
+    public function simpanModulMahasiswaKuliahDanKursus($dataModul)
+    {
+        $val = array(
+            'id_modul_mahasiswa_dan_kursus' => $this->uuid->v4(),
+            'npm'                           => $dataModul['npm'],
+            'nama'                          => $dataModul['nama'],
+            'hari'                          => $dataModul['hari'],
+            'sesi'                          => $dataModul['sesi'],
+            'ruang'                         => $dataModul['ruang'],
+            'id_modul'                      => $dataModul['id_modul'],
+        );
+        $this->db->insert('tb_modul_mahasiswa_dan_kursus', $val);
     }
 
 }

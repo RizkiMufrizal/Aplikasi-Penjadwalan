@@ -119,21 +119,23 @@
                         <table id="tabel3" class="table table-bordered table-hover table-responsive table-striped">
                             <thead>
                                 <tr>
+                                    <th class="text-center">NPM</th>
+                                    <th class="text-center">Nama</th>
                                     <th class="text-center">Hari</th>
                                     <th class="text-center">Ruang</th>
                                     <th class="text-center">Sesi</th>
                                     <th class="text-center">Modul</th>
-                                    <th class="text-center">Jumlah</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($dataAllKursus as $ds) {?>
                                     <tr>
+                                        <td><?php echo $ds->npm; ?></td>
+                                        <td><?php echo $ds->nama; ?></td>
                                         <td><?php echo $ds->hari; ?></td>
                                         <td><?php echo $ds->ruang; ?></td>
                                         <td><?php echo $ds->sesi; ?></td>
-                                        <td><?php echo $ds->modul ?></td>
-                                        <td><?php echo $ds->jumlah ?></td>
+                                        <td><?php echo $ds->nama_modul; ?></td>
                                     </tr>
                                 <?php }
 ?>
